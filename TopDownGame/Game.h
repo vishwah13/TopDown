@@ -1,7 +1,5 @@
 #pragma once
 #include<string>
-#include"raylib.h"
-
 
 
 class Game {
@@ -12,11 +10,13 @@ public:
 	Game& operator=(const Game& other) = delete;
 	~Game() noexcept;
 
+	int SCREEN_WIDTH;
+	int SCREEN_HEIGHT;
 	bool GameWindowClose() const;
 
 	void InitGame();
-	void Tick();
+	void Tick(float deltaTime);
 private:
-	void Update();
+	void Update(float deltaTime);
 	void Draw();
 };

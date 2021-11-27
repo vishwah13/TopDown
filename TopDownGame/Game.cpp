@@ -28,6 +28,9 @@ bool Game::GameWindowClose() const
 
 void Game::InitGame()
 {
+	SCREEN_WIDTH = GetScreenWidth();
+	SCREEN_HEIGHT = GetScreenHeight();
+
 	player.PlayerInit();
 	cam.InitCam(&player);
 
@@ -39,20 +42,20 @@ void Game::InitGame()
 
 }
 
-void Game::Tick()
+void Game::Tick(float deltaTime)
 {
 	BeginDrawing();
 	BeginMode2D(cam.camera);
-	Update();
+	Update(deltaTime);
 	Draw();
 	EndMode2D();
 	EndDrawing();
 }
 
-void Game::Update()
+void Game::Update(float deltaTime)
 {
 	player.UpdatePlayer();
-	cam.UpdateCameraPlayerBoundsPush(&cam.camera, &player, GetFrameTime(), GetScreenWidth(), GetScreenHeight());
+	cam.UpdateCameraPlayerBoundsPush(&cam.camera, &player, deltaTime, SCREEN_WIDTH, SCREEN_HEIGHT);
 }
 
 
