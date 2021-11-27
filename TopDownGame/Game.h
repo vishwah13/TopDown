@@ -17,8 +17,6 @@ public:
 	void InitGame();
 	void Tick();
 private:
-	//Camera2D camera = { 0 };
 	void Update();
 	void Draw();
-	//void UpdateCameraPlayerBoundsPush(Camera2D* camera, Player player, float delta, int width, int height);
 };
