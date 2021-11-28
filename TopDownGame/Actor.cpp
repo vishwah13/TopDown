@@ -1,6 +1,6 @@
-#include"Player.h"
+#include"Actor.h"
 
-void Player::PlayerInit()
+void Actor::InitActor()
 {
 	// Initialize player
 	position.x = 20;
@@ -13,7 +13,7 @@ void Player::PlayerInit()
 	texture = LoadTexture("resources/creature.png");
 }
 
-void Player::UpdatePlayer()
+void Actor::UpdateActor()
 {
 	// Player movement
 	if (IsKeyDown(KEY_RIGHT)) position.x += speed.x;
@@ -28,8 +28,8 @@ void Player::UpdatePlayer()
 	if (player.position.y + player.position.height >= GetScreenHeight()) player.position.y = GetScreenHeight() - player.position.height;*/
 }
 
-void Player::DrawPlayer()
+void Actor::DrawActor()
 {
 	//DrawRectangleRec(player.position, player.color);
-	DrawTexture(texture, position.x, position.y, WHITE);
+	DrawTexture(texture, position.x, position.y, color);
 }

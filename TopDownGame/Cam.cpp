@@ -1,15 +1,15 @@
 #include "Cam.h"
-#include"Player.h"
+#include"Actor.h"
 
-void Cam::InitCam(Player* player)
+void Cam::InitCam(Actor* target)
 {
-	camera.target = Vector2{ player->position.x,player->position.y };
+	camera.target = Vector2{ target->position.x,target->position.y };
 	camera.offset = Vector2{ GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f };
 	camera.rotation = 0.0f;
 	camera.zoom = 1.0f;
 }
 
-void Cam::UpdateCameraPlayerBoundsPush(Camera2D* camera, Player* player, float delta, int width, int height)
+void Cam::UpdateCameraPlayerBoundsPush(Camera2D* camera, Actor* player, float delta, int width, int height)
 {
 	static Vector2 bbox = { 0.2f, 0.2f };
 

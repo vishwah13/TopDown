@@ -1,5 +1,6 @@
 #pragma once
 #include<string>
+#include"raylib.h"
 
 
 class Game {
@@ -19,4 +20,7 @@ public:
 private:
 	void Update(float deltaTime);
 	void Draw();
+
+	//for testing collision
+	Rectangle boxA;
 };

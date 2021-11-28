@@ -2,7 +2,7 @@
 #include<raylib.h>
 
 
-class Player {
+class Actor {
 
 public:
 	Vector2 position;
@@ -14,9 +14,9 @@ public:
 	Vector2 speed;
 	Color color;
 
-	void PlayerInit();
-	void UpdatePlayer();
-	void DrawPlayer();
+	void InitActor();
+	void UpdateActor();
+	void DrawActor();
 private:
 };
 

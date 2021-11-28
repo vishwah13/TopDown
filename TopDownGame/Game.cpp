@@ -1,10 +1,11 @@
 #include<raylib.h>
 #include<assert.h>
 #include"Game.h"
-#include"Player.h"
+#include"Actor.h"
 #include"Cam.h"
 
-static Player player = { 0 };
+static Actor player = { 0 };
+static Actor npc = { 0 };
 static Cam cam = { 0 };
 
 Game::Game(int width, int height, int fps, std::string title)
@@ -32,7 +33,12 @@ void Game::InitGame()
 	SCREEN_WIDTH = GetScreenWidth();
 	SCREEN_HEIGHT = GetScreenHeight();
 
-	player.PlayerInit();
+	 boxA = { 10, GetScreenHeight() / 2.0f - 50, 200, 100 };
+
+	player.InitActor();
+	npc.InitActor();
+	npc.color = GREEN;
+	npc.position = Vector2{ 100,120 };
 	cam.InitCam(&player);
 
 	Rectangle frameRec = { 0.0f, 0.0f, (float)player.texture.width / 6, (float)player.texture.height };
@@ -55,7 +61,7 @@ void Game::Tick(float deltaTime)
 
 void Game::Update(float deltaTime)
 {
-	player.UpdatePlayer();
+	player.UpdateActor();
 	cam.UpdateCameraPlayerBoundsPush(&cam.camera, &player, deltaTime, SCREEN_WIDTH, SCREEN_HEIGHT);
 }
 
@@ -63,6 +69,8 @@ void Game::Update(float deltaTime)
 void Game::Draw()
 {
 	ClearBackground(RAYWHITE);
-	DrawRectangle(GetScreenWidth() / 4 * 2 - 60, 100, 120, 60, RED);
-	player.DrawPlayer();
+	//DrawRectangle(GetScreenWidth() / 4 * 2 - 60, 100, 120, 60, RED);
+	DrawRectangleRec(boxA,BLUE);
+	player.DrawActor();
+	npc.DrawActor();
 }
