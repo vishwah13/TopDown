@@ -4,8 +4,8 @@
 #include"Player.h"
 #include"Cam.h"
 
- Player player = { 0 };
- Cam cam = { 0 };
+static Player player = { 0 };
+static Cam cam = { 0 };
 
 Game::Game(int width, int height, int fps, std::string title)
 {
@@ -25,6 +25,7 @@ bool Game::GameWindowClose() const
 {
 	return WindowShouldClose();
 }
+
 
 void Game::InitGame()
 {
