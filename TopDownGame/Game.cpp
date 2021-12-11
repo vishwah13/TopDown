@@ -36,11 +36,17 @@ void Game::InitGame()
 	 boxA = { 10, GetScreenHeight() / 2.0f - 50, 200, 100 };
 
 	player.InitActor();
+	player.isControllable = true;
+
+	//npc
 	npc.InitActor();
 	npc.color = GREEN;
 	npc.position = Vector2{ 100,120 };
+	
+
 	cam.InitCam(&player);
 
+	//animation
 	Rectangle frameRec = { 0.0f, 0.0f, (float)player.texture.width / 6, (float)player.texture.height };
 	int currentFrame = 0;
 
@@ -62,6 +68,9 @@ void Game::Tick(float deltaTime)
 void Game::Update(float deltaTime)
 {
 	player.UpdateActor();
+
+	npc.UpdateActor();
+
 	cam.UpdateCameraPlayerBoundsPush(&cam.camera, &player, deltaTime, SCREEN_WIDTH, SCREEN_HEIGHT);
 }
 

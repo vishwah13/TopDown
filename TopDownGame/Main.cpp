@@ -4,15 +4,13 @@
 
 
 int main(void)
-{
-    // Initialization
-    //--------------------------------------------------------------------------------------
+{ 
     const int screenWidth = 800;
     const int screenHeight = 450;
     const int fps = 60;
     float deltaTime;
 
-    Game game{ screenWidth,screenHeight,fps,"2D Top Down" };
+    Game game{ screenWidth,screenHeight,fps,"Humar Game" };
     game.InitGame();
 
     //Main app loop

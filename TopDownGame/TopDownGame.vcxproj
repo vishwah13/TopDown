@@ -24,6 +24,7 @@
     <ProjectGuid>{6402f764-d3df-4709-ba3d-e9231ec5fb24}</ProjectGuid>
     <RootNamespace>TopDownGame</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Humar_Game_TopDown2D</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

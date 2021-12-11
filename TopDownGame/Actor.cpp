@@ -5,8 +5,8 @@ void Actor::InitActor()
 	// Initialize player
 	position.x = 20;
 	position.y = 50;
-	position.x = 20;
-	position.y = 20;
+	rec.width = 50;
+	rec.height = 50;
 	speed.x = 5;
 	speed.y = 5;
 	color = WHITE;
@@ -15,11 +15,18 @@ void Actor::InitActor()
 
 void Actor::UpdateActor()
 {
-	// Player movement
-	if (IsKeyDown(KEY_RIGHT)) position.x += speed.x;
-	if (IsKeyDown(KEY_LEFT)) position.x -= speed.x;
-	if (IsKeyDown(KEY_UP)) position.y -= speed.y;
-	if (IsKeyDown(KEY_DOWN)) position.y += speed.y;
+	if (isControllable) 
+	{
+		// Player movement
+		if (IsKeyDown(KEY_RIGHT)) position.x += speed.x;
+		if (IsKeyDown(KEY_LEFT)) position.x -= speed.x;
+		if (IsKeyDown(KEY_UP)) position.y -= speed.y;
+		if (IsKeyDown(KEY_DOWN)) position.y += speed.y;
+	}
+	
+
+	rec.x = position.x;
+	rec.y = position.y;
 
 	// Wall behaviour
 	/*if (player.position.x <= 0) player.position.x = 0;
@@ -30,6 +37,6 @@ void Actor::UpdateActor()
 
 void Actor::DrawActor()
 {
-	//DrawRectangleRec(player.position, player.color);
+	DrawRectangleRec(rec,RED);
 	DrawTexture(texture, position.x, position.y, color);
 }

@@ -5,7 +5,10 @@
 class Actor {
 
 public:
+	bool isControllable = false;
+	Rectangle rec;
 	Vector2 position;
+	int health;
 	Texture2D texture;
 	float frameWidth;
 	int maxframe;
