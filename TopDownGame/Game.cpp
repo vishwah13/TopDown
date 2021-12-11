@@ -77,6 +77,7 @@ void Game::Update(float deltaTime)
 
 void Game::Draw()
 {
+
 	ClearBackground(RAYWHITE);
 	//DrawRectangle(GetScreenWidth() / 4 * 2 - 60, 100, 120, 60, RED);
 	DrawRectangleRec(boxA,BLUE);
